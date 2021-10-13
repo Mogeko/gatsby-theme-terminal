@@ -1,0 +1,10 @@
+{
+  "name": "gatsby-theme-terminal",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Mogeko <zhengjunyi@live.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": "^3.3.0"
+  }
+}
