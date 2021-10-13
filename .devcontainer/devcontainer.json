@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.202.3/containers/javascript-node
 {
-	"name": "Node.js",
+	"name": "Gatsby",
 	"runArgs": ["--init"],
 	"build": {
 		"dockerfile": "Dockerfile",
@@ -12,11 +12,17 @@
 	},
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": {},
+	"settings": {
+		"editor.tabSize": 2
+	},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"mgmcdermott.vscode-language-babel",
+		"github.vscode-pull-request-github",
+		"jpoissonnier.vscode-styled-components"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
