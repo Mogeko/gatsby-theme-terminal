@@ -1,4 +1,5 @@
 .cache
+.linaria-cache
 package.json
 package-lock.json
 public

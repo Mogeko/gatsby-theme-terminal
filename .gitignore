@@ -106,3 +106,12 @@ public
 
 # linaria
 .linaria-cache
+
+# yarn2 cache for not using Zero-Installs
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
