@@ -1,9 +1,10 @@
 import React from 'react';
 import { styled } from '@linaria/react';
+import { graphql, useStaticQuery } from 'gatsby';
+import PropTypes from 'prop-types';
 import { useColors } from '../styles/variable';
 import CssBaseline from '../styles/base';
 import Header from './header';
-import { graphql, useStaticQuery } from 'gatsby';
 
 const Layout = ({ children, classname }) => {
   const data = useStaticQuery(graphql`
@@ -46,5 +47,10 @@ const Wrap = styled.div`
 `;
 
 const Main = styled.main``;
+
+Layout.propTypes = {
+  children: PropTypes.element.isRequired,
+  classname: PropTypes.string,
+};
 
 export default Layout;
