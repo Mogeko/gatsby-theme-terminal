@@ -1,4 +1,5 @@
 import { css } from "@linaria/core"
+import { immutableColors } from "../styles/variable"
 
 const CssBaseline = css`
   :global() {
@@ -10,8 +11,8 @@ const CssBaseline = css`
       font-size: 1rem;
       letter-spacing: -0.02em;
       line-height: 1.54;
-      background-color: #181a1b;
-      color: #E8E6E3;
+      background-color: ${immutableColors.backgroundColor};
+      color: ${immutableColors.fontColor};
     }
   }
 `

@@ -2,22 +2,22 @@ import React from 'react'
 import { styled } from '@linaria/react'
 import { Link } from 'gatsby'
 
-
-const Header = ({ siteTitle, menu }) => {
+const Header = ({ siteTitle, menu, color }) => {
   const HeaderBar = styled.header`
     color: inherit;
     display: flex;
     flex-direction: column;
   `
+
   return (
     <HeaderBar>
-      <Logo siteTitle={siteTitle}/>
-      <MenuBar menu={menu}/>
+      <Logo siteTitle={siteTitle} themeColor={color.themeColor} />
+      <MenuBar menu={menu} />
     </HeaderBar>
   )
 }
 
-const Logo = ({ siteTitle }) => {
+const Logo = ({ siteTitle, themeColor }) => {
   const Wrap = styled.div`
     display: flex;
     &::after {
@@ -41,7 +41,7 @@ const Logo = ({ siteTitle }) => {
   `
 
   return (
-    <Wrap color='#8c3a00' >
+    <Wrap color={themeColor} >
       <Link to='/'>{siteTitle}</Link>
     </Wrap>
   )
