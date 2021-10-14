@@ -5,10 +5,58 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace example build"
+    "build": "yarn workspace example build",
+    "develop": "yarn workspace example develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint --fix ."
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    },
+    "ignorePatterns": [
+      ".cache",
+      ".linaria-cache",
+      "package.json",
+      "package-lock.json",
+      "public"
+    ]
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "prettier": "^2.4.1"
   },
   "workspaces": [
     "gatsby-theme-terminal",
     "example"
-  ]
+  ],
+  "packageManager": "yarn@3.0.2"
 }

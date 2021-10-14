@@ -17,11 +17,11 @@ here for educational purposes.
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-theme-terminal",
+      resolve: 'gatsby-theme-terminal',
       options: {},
     },
   ],
-}
+};
 ```
 
 That's it, you can now run your gatsby site using
@@ -35,10 +35,10 @@ resources error. Create a simple page in `src/pages/index.js` to see a
 page on the root url.
 
 ```jsx
-import React from "react"
+import React from 'react';
 
 export default function Home() {
-  return <div>My Site!</div>
+  return <div>My Site!</div>;
 }
 ```
 
