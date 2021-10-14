@@ -1,12 +1,11 @@
-import React from "react"
-import { styled } from '@linaria/react'
-import { useColors } from '../styles/variable'
-import CssBaseline from "../styles/base"
-import Header from "./header"
-import { graphql, useStaticQuery } from "gatsby"
+import React from 'react';
+import { styled } from '@linaria/react';
+import { useColors } from '../styles/variable';
+import CssBaseline from '../styles/base';
+import Header from './header';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const Layout = ({ children, classname }) => {
-
   const data = useStaticQuery(graphql`
     query SiteDataQuery {
       site {
@@ -20,9 +19,9 @@ const Layout = ({ children, classname }) => {
         }
       }
     }
-  `)
+  `);
 
-  const color = useColors(data.site.siteMetadata?.themeColor)
+  const color = useColors(data.site.siteMetadata?.themeColor);
 
   return (
     <Wrap className={classname}>
@@ -34,8 +33,8 @@ const Layout = ({ children, classname }) => {
       />
       <Main>{children}</Main>
     </Wrap>
-  )
-}
+  );
+};
 
 const Wrap = styled.div`
   display: flex;
@@ -43,9 +42,9 @@ const Wrap = styled.div`
   min-height: 100vh;
   max-width: 784px;
   padding: 40px;
-  border-right: 1px solid hsla(0,0%,100%,.1);
-`
+  border-right: 1px solid hsla(0, 0%, 100%, 0.1);
+`;
 
-const Main = styled.main``
+const Main = styled.main``;
 
-export default Layout
+export default Layout;

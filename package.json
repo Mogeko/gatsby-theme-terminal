@@ -5,7 +5,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace example build"
+    "build": "yarn workspace example build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
   },
   "workspaces": [
     "gatsby-theme-terminal",

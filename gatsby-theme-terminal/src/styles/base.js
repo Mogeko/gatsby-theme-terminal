@@ -1,10 +1,10 @@
-import { css } from "@linaria/core"
-import { immutableColors } from "../styles/variable"
+import { css } from '@linaria/core';
+import { immutableColors } from '../styles/variable';
 
 const CssBaseline = css`
   :global() {
-    @import url("https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css");
-    @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+    @import url('https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css');
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
     body {
       font-family: 'Fira Code', Consolas, 'Courier New', monospace;
@@ -15,6 +15,6 @@ const CssBaseline = css`
       color: ${immutableColors.fontColor};
     }
   }
-`
+`;
 
-export default CssBaseline
+export default CssBaseline;

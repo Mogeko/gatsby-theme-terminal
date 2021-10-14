@@ -1,17 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: 'Terminal',
-    themeColor: '#8c3a00'
+    themeColor: '#8c3a00',
   },
   menu: [
     {
       title: 'About',
-      path: '/about'
+      path: '/about',
     },
     {
       title: 'Tags',
-      path: '/tags'
-    }
+      path: '/tags',
+    },
   ],
   plugins: [{ resolve: `gatsby-theme-terminal`, options: {} }],
-}
+};
