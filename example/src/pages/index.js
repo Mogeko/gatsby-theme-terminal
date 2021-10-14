@@ -1,5 +1,3 @@
-import React from "react"
+import IndexPage from "gatsby-theme-terminal/src/pages"
 
-export default function Home() {
-  return <div>Homepage in a user's site</div>
-}
+export default IndexPage

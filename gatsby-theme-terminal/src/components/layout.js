@@ -3,25 +3,35 @@ import { styled } from '@linaria/react'
 import { useColors } from '../styles/variable'
 import CssBaseline from "../styles/base"
 import Header from "./header"
+import { graphql, useStaticQuery } from "gatsby"
 
 const Layout = ({ children, classname }) => {
-  const menu = [
-    {
-      title: 'About',
-      href: '/about'
-    },
-    {
-      title: 'Tags',
-      href: '/tags'
-    }
-  ]
 
-  const [ color ] = useColors()
+  const data = useStaticQuery(graphql`
+    query SiteDataQuery {
+      site {
+        menu {
+          path
+          title
+        }
+        siteMetadata {
+          themeColor
+          title
+        }
+      }
+    }
+  `)
+
+  const color = useColors(data.site.siteMetadata?.themeColor)
 
   return (
     <Wrap className={classname}>
       <CssBaseline />
-      <Header siteTitle='Terminal' menu={menu} color={color} />
+      <Header
+        siteTitle={data.site.siteMetadata?.title}
+        menu={data.site?.menu}
+        color={color}
+      />
       <Main>{children}</Main>
     </Wrap>
   )

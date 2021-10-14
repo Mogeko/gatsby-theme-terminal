@@ -62,7 +62,7 @@ const MenuBar = ({ menu }) => {
 
   return (
     <Menu>
-      {menu.map(item => <a href={item.href}>{item.title}</a>)}
+      {menu.map(item => <a href={item.path}>{item.title}</a>)}
     </Menu>
   )
 }
