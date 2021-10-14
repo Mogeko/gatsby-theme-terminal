@@ -9,13 +9,13 @@ const Layout = ({ children, classname }) => {
   const data = useStaticQuery(graphql`
     query SiteDataQuery {
       site {
-        menu {
-          path
-          title
-        }
         siteMetadata {
           themeColor
           title
+          menu {
+            path
+            title
+          }
         }
       }
     }
@@ -28,7 +28,7 @@ const Layout = ({ children, classname }) => {
       <CssBaseline />
       <Header
         siteTitle={data.site.siteMetadata?.title}
-        menu={data.site?.menu}
+        menu={data.site.siteMetadata?.menu}
         color={color}
       />
       <Main>{children}</Main>
