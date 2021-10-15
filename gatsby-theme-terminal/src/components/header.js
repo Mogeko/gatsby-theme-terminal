@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { styled } from '@linaria/react';
@@ -65,7 +64,9 @@ const MenuBar = ({ menu }) => {
   return (
     <Menu>
       {menu.map((item) => (
-        <a href={item.path}>{item.title}</a>
+        <a key={`Menu-${item.title}`} href={item.path}>
+          {item.title}
+        </a>
       ))}
     </Menu>
   );
