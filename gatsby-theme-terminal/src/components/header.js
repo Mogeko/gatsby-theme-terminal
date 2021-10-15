@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { styled } from '@linaria/react';
 import { Link } from 'gatsby';
@@ -65,24 +63,12 @@ const MenuBar = ({ menu }) => {
   return (
     <Menu>
       {menu.map((item) => (
-        <a href={item.path}>{item.title}</a>
+        <a key={`Menu-${item.title}`} href={item.path}>
+          {item.title}
+        </a>
       ))}
     </Menu>
   );
-};
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-  menu: MenuBar.prototype.menu,
-  color: PropTypes.shape({
-    themeColor: PropTypes.string,
-    ...PropTypes.objectOf(PropTypes.string),
-  }),
-};
-
-Logo.propTypes = {
-  siteTitle: PropTypes.string,
-  themeColor: PropTypes.string,
 };
 
 MenuBar.propTypes = {
@@ -92,6 +78,20 @@ MenuBar.propTypes = {
       path: PropTypes.string,
     })
   ),
+};
+
+Header.propTypes = {
+  siteTitle: PropTypes.string,
+  color: PropTypes.shape({
+    themeColor: PropTypes.string,
+    ...PropTypes.objectOf(PropTypes.string),
+  }),
+  ...MenuBar.propTypes,
+};
+
+Logo.propTypes = {
+  siteTitle: PropTypes.string,
+  themeColor: PropTypes.string,
 };
 
 export default Header;
