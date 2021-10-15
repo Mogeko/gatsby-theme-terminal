@@ -16,5 +16,15 @@ module.exports = {
       },
     ],
   },
-  plugins: [{ resolve: `gatsby-theme-terminal`, options: {} }],
+  plugins: [
+    {
+      // Read files from content/posts
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: `${__dirname}/content/posts`,
+      },
+    },
+    { resolve: `gatsby-theme-terminal`, options: {} },
+  ],
 };

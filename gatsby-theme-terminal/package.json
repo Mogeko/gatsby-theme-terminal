@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Mogeko <zhengjunyi@live.com>",
   "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf content & gatsby clean"
+  },
   "peerDependencies": {
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^3.14.2",
