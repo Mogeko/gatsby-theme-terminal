@@ -71,20 +71,6 @@ const MenuBar = ({ menu }) => {
   );
 };
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-  menu: MenuBar.prototype.menu,
-  color: PropTypes.shape({
-    themeColor: PropTypes.string,
-    ...PropTypes.objectOf(PropTypes.string),
-  }),
-};
-
-Logo.propTypes = {
-  siteTitle: PropTypes.string,
-  themeColor: PropTypes.string,
-};
-
 MenuBar.propTypes = {
   menu: PropTypes.arrayOf(
     PropTypes.shape({
@@ -92,6 +78,20 @@ MenuBar.propTypes = {
       path: PropTypes.string,
     })
   ),
+};
+
+Header.propTypes = {
+  siteTitle: PropTypes.string,
+  color: PropTypes.shape({
+    themeColor: PropTypes.string,
+    ...PropTypes.objectOf(PropTypes.string),
+  }),
+  ...MenuBar.propTypes,
+};
+
+Logo.propTypes = {
+  siteTitle: PropTypes.string,
+  themeColor: PropTypes.string,
 };
 
 export default Header;

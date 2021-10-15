@@ -16,6 +16,7 @@ jobs:
         env:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: false
           JAVASCRIPT_DEFAULT_STYLE: prettier
           VALIDATE_MARKDOWN: false
     
