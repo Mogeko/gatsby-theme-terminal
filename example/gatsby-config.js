@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Terminal',
     themeColor: '#8c3a00',
+    year: 2017,
     menu: [
       {
         title: 'About',

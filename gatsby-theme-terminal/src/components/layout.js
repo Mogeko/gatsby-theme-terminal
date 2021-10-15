@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { useColors } from '../styles/variable';
 import CssBaseline from '../styles/base';
 import Header from './header';
+import Footer from './footer';
 
 const Layout = ({ children, classname }) => {
   const data = useStaticQuery(graphql`
@@ -13,16 +14,23 @@ const Layout = ({ children, classname }) => {
         siteMetadata {
           themeColor
           title
+          year
           menu {
             path
             title
           }
         }
       }
+      siteBuildMetadata {
+        buildTime
+      }
     }
   `);
 
   const color = useColors(data.site.siteMetadata?.themeColor);
+  const now = new Date(
+    Date.parse(data.siteBuildMetadata?.buildTime)
+  ).getFullYear();
 
   return (
     <Wrap className={classname}>
@@ -33,6 +41,7 @@ const Layout = ({ children, classname }) => {
         color={color}
       />
       <Main>{children}</Main>
+      <Footer year={data.site.siteMetadata?.year} now={now} />
     </Wrap>
   );
 };
@@ -40,13 +49,16 @@ const Layout = ({ children, classname }) => {
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   min-height: 100vh;
-  max-width: 784px;
+  max-width: 864px;
   padding: 40px;
   border-right: 1px solid hsla(0, 0%, 100%, 0.1);
 `;
 
-const Main = styled.main``;
+const Main = styled.main`
+  flex-grow: 1;
+`;
 
 Layout.propTypes = {
   children: PropTypes.element.isRequired,
