@@ -1,4 +1,3 @@
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import { styled } from '@linaria/react';
 import { Link } from 'gatsby';
