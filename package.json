@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn workspace example build",
+    "clean": "yarn workspaces foreach run clean",
     "develop": "yarn workspace example develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint --fix ."
