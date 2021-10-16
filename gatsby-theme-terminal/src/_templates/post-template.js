@@ -9,29 +9,32 @@ import Article from '../components/article';
 
 const shortcodes = { Link };
 
-// { data: { mdx, site }, pageContext }
-const PageTemplate = ({ data: { mdx, site } }) => {
-  // const { prev, next } = pageContext;
-  // const prevPage = prev
-  //   ? {
-  //       title: prev.frontmatter.title,
-  //       slug: `/posts/${prev.slug}`,
-  //     }
-  //   : null;
-  // const nextPage = next
-  //   ? {
-  //       title: next.frontmatter.title,
-  //       slug: `/posts/${next.slug}`,
-  //     }
-  //   : null;
+const PageTemplate = ({ data: { mdx, site }, pageContext }) => {
+  const { prev, next } = pageContext;
+  const prevPage = prev
+    ? {
+        id: prev.id,
+        title: prev.frontmatter.title,
+        slug: `/posts/${prev.slug}`,
+      }
+    : null;
+  const nextPage = next
+    ? {
+        id: next.id,
+        title: next.frontmatter.title,
+        slug: `/posts/${next.slug}`,
+      }
+    : null;
+
+  const meta = {
+    title: mdx.frontmatter?.title,
+    date: mdx.frontmatter?.date,
+    author: site.siteMetadata?.author,
+  };
 
   return (
     <Layout>
-      <Article
-        title={mdx.frontmatter?.title}
-        date={mdx.frontmatter?.date}
-        author={site.siteMetadata?.author}
-      >
+      <Article id={mdx.id} meta={meta} prevPage={prevPage} nextPage={nextPage}>
         <MDXProvider components={{ ...components, ...shortcodes }}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </MDXProvider>
@@ -47,7 +50,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
       }
       internal {
         content
