@@ -1,7 +1,6 @@
 module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -15,8 +14,6 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-linaria`,
   ],
 };
