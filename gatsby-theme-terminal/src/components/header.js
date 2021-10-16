@@ -2,8 +2,9 @@ import React from 'react';
 import { styled } from '@linaria/react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import { color } from '../styles/variable';
 
-const Header = ({ siteTitle, menu, color }) => {
+const Header = ({ siteTitle, menu }) => {
   const HeaderBar = styled.header`
     color: inherit;
     display: flex;
@@ -12,14 +13,14 @@ const Header = ({ siteTitle, menu, color }) => {
 
   return (
     <HeaderBar>
-      <Logo siteTitle={siteTitle} themeColor={color.themeColor} />
+      <Logo siteTitle={siteTitle} themeColor={color.headerColor} />
       <MenuBar menu={menu} />
     </HeaderBar>
   );
 };
 
 const Logo = ({ siteTitle, themeColor }) => {
-  const Wrap = styled.div`
+  const LogoWrap = styled.div`
     display: flex;
     &::after {
       background: repeating-linear-gradient(
@@ -42,9 +43,9 @@ const Logo = ({ siteTitle, themeColor }) => {
   `;
 
   return (
-    <Wrap color={themeColor}>
+    <LogoWrap color={themeColor}>
       <Link to="/">{siteTitle}</Link>
-    </Wrap>
+    </LogoWrap>
   );
 };
 

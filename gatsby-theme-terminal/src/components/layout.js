@@ -2,7 +2,6 @@ import React from 'react';
 import { styled } from '@linaria/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
-import { useColors } from '../styles/variable';
 import CssBaseline from '../styles/base';
 import Header from './header';
 import Footer from './footer';
@@ -27,7 +26,6 @@ const Layout = ({ children, classname }) => {
     }
   `);
 
-  const color = useColors(data.site.siteMetadata?.themeColor);
   const now = new Date(
     Date.parse(data.siteBuildMetadata?.buildTime)
   ).getFullYear();
@@ -38,7 +36,6 @@ const Layout = ({ children, classname }) => {
       <Header
         siteTitle={data.site.siteMetadata?.title}
         menu={data.site.siteMetadata?.menu}
-        color={color}
       />
       <Main>{children}</Main>
       <Footer year={data.site.siteMetadata?.year} now={now} />

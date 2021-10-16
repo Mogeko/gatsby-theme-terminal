@@ -2,21 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@linaria/react';
 import { Content } from './mdx';
+import { Link } from 'gatsby';
+import { color } from '../styles/variable';
 
-const Article = ({ title, author, date, children }) => {
+const Article = ({ id, meta, prevPage, nextPage, children }) => {
+  const { title, author, date } = meta;
+  const ArticleWrap = styled.article`
+    padding: 20px 0px;
+    margin: 20px auto;
+  `;
   return (
-    <article>
+    <ArticleWrap id={id}>
       <Header title={title} author={author} date={date} />
       <Content>{children}</Content>
-    </article>
+      <Footer prev={prevPage} next={nextPage} />
+    </ArticleWrap>
   );
 };
 
 const Header = ({ title, author, date }) => {
-  const StyledHeader = styled.header`
+  const HeaderWrap = styled.header`
     --border-color: ${(props) => props.color};
   `;
-  const StyledH1 = styled.h1`
+  const H1Wrap = styled.h1`
     margin: 40px 0 15px;
     padding-bottom: 15px;
     font-size: 1.4rem;
@@ -33,7 +41,7 @@ const Header = ({ title, author, date }) => {
       border-bottom: 3px dotted var(--border-color);
     }
   `;
-  const StyledPostMate = styled(PostMate)`
+  const PostMateWrap = styled(PostMate)`
     color: ${(props) => props.color};
     font-size: 1rem;
     margin-bottom: 10px;
@@ -43,10 +51,10 @@ const Header = ({ title, author, date }) => {
   `;
 
   return (
-    <StyledHeader color="#922d00">
-      <StyledH1 color="#ffa460">{title}</StyledH1>
-      <StyledPostMate color="#ffa464b3" author={author} date={date} />
-    </StyledHeader>
+    <HeaderWrap color={color.post.headerDividerColor}>
+      <H1Wrap color={color.post.titleColor}>{title}</H1Wrap>
+      <PostMateWrap color={color.post.metaColor} author={author} date={date} />
+    </HeaderWrap>
   );
 };
 
@@ -56,9 +64,77 @@ const PostMate = ({ className, style, author, date }) => (
   </div>
 );
 
+const Footer = ({ prev, next }) => {
+  const FooterWrap = styled.footer`
+    margin-top: 50px;
+  `;
+  const FooterTitle = styled.div`
+    display: flex;
+    text-align: center;
+    margin: 100px 0 20px;
+    span {
+      text-align: center;
+      margin: 0 auto;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  `;
+  const FooterBottoms = styled.div`
+    display: flex;
+    color: inherit;
+    align-items: center;
+    justify-content: center;
+  `;
+  const WrapLink = styled.span`
+    position: relative;
+    display: inline-flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    overflow: hidden;
+    a {
+      text-decoration: none;
+      color: inherit;
+      padding: 16px 8px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  `;
+
+  return (
+    <FooterWrap>
+      <FooterTitle>
+        <span>Read other posts</span>
+      </FooterTitle>
+      <FooterBottoms>
+        {prev ? (
+          <WrapLink id={prev.id}>
+            <Link to={prev.slug}>&larr; {prev.title}</Link>
+          </WrapLink>
+        ) : null}
+        {next ? (
+          <WrapLink id={next.id}>
+            <Link to={next.slug}>{next.title} &rarr;</Link>
+          </WrapLink>
+        ) : null}
+      </FooterBottoms>
+    </FooterWrap>
+  );
+};
+
 Article.propTypes = {
   children: PropTypes.element.isRequired,
-  ...Header.propTypes,
+  meta: PropTypes.shape(Header.propTypes),
 };
 
 Header.propTypes = {
