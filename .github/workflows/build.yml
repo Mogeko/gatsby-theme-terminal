@@ -19,7 +19,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           JAVASCRIPT_DEFAULT_STYLE: prettier
           VALIDATE_MARKDOWN: false
-    
+
   build:
     name: Build Site
     needs: linter
@@ -32,7 +32,8 @@ jobs:
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - uses: actions/cache@v2
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -43,7 +44,10 @@ jobs:
           node-version: '16'
       - name: Installation dependencies
         run: yarn install
-      - name: Build Example Site
+      - name: Build example site
         run: yarn build
-        
-
+      - name: Update example site
+        uses: actions/upload-artifact@v2
+          with:
+            name: site
+            path: example/public
