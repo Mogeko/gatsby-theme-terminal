@@ -48,6 +48,6 @@ jobs:
         run: yarn build
       - name: Update example site
         uses: actions/upload-artifact@v2
-          with:
-            name: site
-            path: example/public
+        with:
+          name: site
+          path: example/public
