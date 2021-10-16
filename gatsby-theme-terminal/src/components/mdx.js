@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@linaria/react';
 
-export const Content = styled.div``;
+export const Content = styled.main``;
 
 const Table = styled.table``;
 

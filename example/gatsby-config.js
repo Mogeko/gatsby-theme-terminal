@@ -3,6 +3,7 @@ module.exports = {
     title: 'Terminal', // The name of the site
     themeColor: '#8c3a00', // The theme color of the website, default '#8c3a00'
     year: 2017, // When did you start writing articles? (year)
+    author: 'Mogeko', // Your name
     menu: [
       // The structure of the main menu
       // Pay attention to the order
