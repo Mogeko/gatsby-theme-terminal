@@ -7591,6 +7591,7 @@ fsevents@~2.3.2:
     gatsby-plugin-react-helmet: ^4.14.0
     gatsby-source-filesystem: ^3.14.0
     linaria: ^3.0.0-beta.13
+    prism-react-renderer: ^1.2.1
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12485,6 +12486,15 @@ fsevents@~2.3.2:
     ansi-styles: ^4.0.0
     react-is: ^16.12.0
   checksum: 76f022d2c911d9733a961467545f5aef2cae892da289fff92ba6a6868a10df4d8ef79794ff791e353f67f0edfa85765240f1e7d552e27c94029ae6af1c95174b
+  languageName: node
+  linkType: hard
+
+"prism-react-renderer@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "prism-react-renderer@npm:1.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprism-react-renderer%2Fdownload%2Fprism-react-renderer-1.2.1.tgz"
+  peerDependencies:
+    react: ">=0.14.9"
+  checksum: 66cab3d9f9f18ff5db222df74e1f326262ad093202f855ef2bd9e8001fef21b92f2242a2292caa77c36a517a7f379620417b421eaa320405deb6ecb27c18ee5e
   languageName: node
   linkType: hard
 

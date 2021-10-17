@@ -34,7 +34,7 @@ const PageTemplate = ({ data: { mdx, site }, pageContext }) => {
 
   return (
     <Layout>
-      <Article id={mdx.id} meta={meta} prevPage={prevPage} nextPage={nextPage}>
+      <Article key={mdx.id} meta={meta} prevPage={prevPage} nextPage={nextPage}>
         <MDXProvider components={{ ...components, ...shortcodes }}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </MDXProvider>
