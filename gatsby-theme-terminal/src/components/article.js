@@ -8,7 +8,7 @@ import { color } from '../styles/variable';
 const Article = ({ id, meta, prevPage, nextPage, children }) => {
   const { title, author, date } = meta;
   const ArticleWrap = styled.article`
-    padding: 20px 0px;
+    padding: 20px 0;
     margin: 20px auto;
   `;
   return (
@@ -51,7 +51,7 @@ const Header = ({ title, author, date }) => {
   `;
 
   return (
-    <HeaderWrap color={color.post.headerDividerColor}>
+    <HeaderWrap color={color.post.borderColor}>
       <H1Wrap color={color.post.titleColor}>{title}</H1Wrap>
       <PostMateWrap color={color.post.metaColor} author={author} date={date} />
     </HeaderWrap>
@@ -145,7 +145,7 @@ Header.propTypes = {
 
 PostMate.propTypes = {
   className: PropTypes.string,
-  style: PropTypes.string,
+  style: PropTypes.object,
   color: PropTypes.string,
   author: PropTypes.string,
   date: PropTypes.string,
