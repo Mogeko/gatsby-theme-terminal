@@ -8,11 +8,11 @@ import { color } from '../styles/variable';
 const Article = ({ id, meta, prevPage, nextPage, children }) => {
   const { title, author, date } = meta;
   const ArticleWrap = styled.article`
-    padding: 20px 0;
+    padding: 20px 0px;
     margin: 20px auto;
   `;
   return (
-    <ArticleWrap id={id}>
+    <ArticleWrap key={id}>
       <Header title={title} author={author} date={date} />
       <Content>{children}</Content>
       <Footer prev={prevPage} next={nextPage} />
@@ -118,12 +118,12 @@ const Footer = ({ prev, next }) => {
       </FooterTitle>
       <FooterBottoms>
         {prev ? (
-          <WrapLink id={prev.id}>
+          <WrapLink key={prev.id}>
             <Link to={prev.slug}>&larr; {prev.title}</Link>
           </WrapLink>
         ) : null}
         {next ? (
-          <WrapLink id={next.id}>
+          <WrapLink key={next.id}>
             <Link to={next.slug}>{next.title} &rarr;</Link>
           </WrapLink>
         ) : null}

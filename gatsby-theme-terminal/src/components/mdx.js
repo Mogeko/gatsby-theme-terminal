@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from '@linaria/react';
 import { color } from '../styles/variable';
+import PrismCode from './highlight';
 
 export const Content = styled.main`
   a {
@@ -118,7 +119,7 @@ const Table = styled.table`
   &,
   td,
   th {
-    border: 1px dashed ${color.post.borderColor};
+    border: 2px dashed ${color.post.borderColor};
     padding: 10px;
   }
   th {
@@ -164,6 +165,7 @@ const components = {
   table: Table,
   inlineCode: InlineCode,
   img: Image,
+  pre: PrismCode,
 };
 
 export default components;
