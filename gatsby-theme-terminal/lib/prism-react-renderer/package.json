@@ -1,0 +1,18 @@
+{
+  "name": "prism-react-renderer",
+  "sideEffects": false,
+  "main": "index.cjs.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "files": [
+    "prism",
+    "themes",
+    "index.cjs.js",
+    "index.d.ts",
+    "index.js"
+  ],
+  "peerDependencies": {
+    "react": ">=0.14.9"
+  }
+}
