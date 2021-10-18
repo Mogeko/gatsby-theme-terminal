@@ -3,7 +3,7 @@
   "reporters": ["consoleFull"],
   "ignore": [
     "**/__snapshots__/**",
-    "prism-react-renderer/**/*",
+    "*/prism-react-renderer/**/*",
     "**/*.md",
     "**/*.mdx"
   ],
