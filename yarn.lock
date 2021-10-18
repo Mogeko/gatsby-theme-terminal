@@ -7703,7 +7703,7 @@ fsevents@~2.3.2:
     gatsby-plugin-react-helmet: ^4.14.0
     gatsby-source-filesystem: ^3.14.0
     linaria: ^3.0.0-beta.13
-    prism-react-renderer: "file:./lib/prism-react-renderer"
+    prism-react-renderer: 1.2.0
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12602,14 +12602,13 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"prism-react-renderer@file:./lib/prism-react-renderer::locator=gatsby-theme-terminal%40workspace%3Agatsby-theme-terminal":
-  version: 0.0.0
-  resolution: "prism-react-renderer@file:./lib/prism-react-renderer#./lib/prism-react-renderer::hash=726e66&locator=gatsby-theme-terminal%40workspace%3Agatsby-theme-terminal"
+"prism-react-renderer@1.2.0, prism-react-renderer@workspace:prism-react-renderer":
+  version: 0.0.0-use.local
+  resolution: "prism-react-renderer@workspace:prism-react-renderer"
   peerDependencies:
     react: ">=0.14.9"
-  checksum: 513048bc23aa460128e0b76cd37707cd4a964f74db1b97d3e80febfd5c1b50e94fea1bbda9dcc414eb6c486167531694f72f16ce2f021fca5fd3ff376ddf5018
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
 "process-nextick-args@npm:~2.0.0":
   version: 2.0.1

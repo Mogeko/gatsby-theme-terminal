@@ -68,6 +68,7 @@
   },
   "workspaces": [
     "gatsby-theme-terminal",
+    "prism-react-renderer",
     "example"
   ],
   "packageManager": "yarn@3.0.2"
