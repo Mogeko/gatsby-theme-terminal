@@ -1,6 +1,11 @@
 {
   "threshold": 0,
   "reporters": ["consoleFull"],
-  "ignore": ["**/__snapshots__/**", "prism-react-renderer", "**/*.md", "**/*.mdx"],
+  "ignore": [
+    "**/__snapshots__/**",
+    "prism-react-renderer/**/*",
+    "**/*.md",
+    "**/*.mdx"
+  ],
   "absolute": true
 }
