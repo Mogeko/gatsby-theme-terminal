@@ -1,6 +1,11 @@
 {
   "threshold": 0,
   "reporters": ["consoleFull"],
-  "ignore": ["**/__snapshots__/**", "**/*.md", "**/*.mdx"],
+  "ignore": [
+    "**/__snapshots__/**",
+    "gatsby-theme-terminal/lib/prism-react-renderer",
+    "**/*.md",
+    "**/*.mdx"
+  ],
   "absolute": true
 }
