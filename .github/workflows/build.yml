@@ -20,6 +20,7 @@ jobs:
           JAVASCRIPT_DEFAULT_STYLE: prettier
           VALIDATE_TYPESCRIPT_STANDARD: false
           VALIDATE_MARKDOWN: false
+          VALIDATE_JSCPD: false
 
   build:
     name: Build Site
