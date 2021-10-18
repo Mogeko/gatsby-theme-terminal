@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "es6",
+    "target": "es5",
     "jsx": "preserve",
-    "module": "es6",
+    "module": "commonjs",
     "rootDir": "./",
     "lib": [
-      "dom",
-      "es2015",
-      "es2017"
+      "DOM"
     ],
     "allowJs": true,
     "checkJs": true,
@@ -31,11 +29,13 @@
       }
     ]
   },
+  "files": [
+    "./index.js"
+  ],
   "include": [
     "./src/**/*"
   ],
   "exclude": [
-    "./lib/prism-react-renderer/**/*",
     "./gatsby-*"
   ]
 }

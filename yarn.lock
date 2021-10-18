@@ -7772,7 +7772,7 @@ fsevents@~2.3.2:
     gatsby-plugin-typescript: ^3.14.0
     gatsby-source-filesystem: ^3.14.0
     linaria: ^3.0.0-beta.13
-    prism-react-renderer: 1.2.0
+    prism-react-renderer: ^1.2.1
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
@@ -12678,13 +12678,14 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"prism-react-renderer@1.2.0, prism-react-renderer@workspace:prism-react-renderer":
-  version: 0.0.0-use.local
-  resolution: "prism-react-renderer@workspace:prism-react-renderer"
+"prism-react-renderer@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "prism-react-renderer@npm:1.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprism-react-renderer%2Fdownload%2Fprism-react-renderer-1.2.1.tgz"
   peerDependencies:
     react: ">=0.14.9"
-  languageName: unknown
-  linkType: soft
+  checksum: 66cab3d9f9f18ff5db222df74e1f326262ad093202f855ef2bd9e8001fef21b92f2242a2292caa77c36a517a7f379620417b421eaa320405deb6ecb27c18ee5e
+  languageName: node
+  linkType: hard
 
 "process-nextick-args@npm:~2.0.0":
   version: 2.0.1

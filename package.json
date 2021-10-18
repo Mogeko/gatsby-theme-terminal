@@ -49,8 +49,7 @@
       ".linaria-cache",
       "package.json",
       "package-lock.json",
-      "public",
-      "prism-react-renderer"
+      "public"
     ]
   },
   "prettier": {
@@ -68,7 +67,6 @@
   },
   "workspaces": [
     "gatsby-theme-terminal",
-    "prism-react-renderer",
     "example"
   ],
   "packageManager": "yarn@3.0.2"

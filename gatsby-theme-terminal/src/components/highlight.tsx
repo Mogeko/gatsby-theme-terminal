@@ -60,6 +60,8 @@ const PrismCode = ({ children: { props } }: PrismCodeProps) => {
   `;
 
   return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore Allow `language` to be a string
     <Highlight {...defaultProps} theme={theme} code={children} language={lang}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Pre className={className} style={style}>
