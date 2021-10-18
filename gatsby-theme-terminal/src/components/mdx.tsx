@@ -3,6 +3,10 @@ import { styled } from '@linaria/react';
 import { color } from '../styles/variable';
 import PrismCode from './highlight';
 
+// Don't modify InlineCode's style here.
+// Modify it in Content.
+const InlineCode = styled.code``;
+
 export const Content = styled.main`
   a {
     color: inherit;
@@ -127,11 +131,7 @@ const Table = styled.table`
   }
 `;
 
-// Don't modify InlineCode's style here.
-// Modify it in Content.
-const InlineCode = styled.code``;
-
-const Image = (props) => {
+const Image = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
   const Figure = styled.figure`
     display: table;
     max-width: 100%;

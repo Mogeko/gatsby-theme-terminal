@@ -1,28 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { styled } from '@linaria/react';
 import { Content } from './mdx';
 import { Link } from 'gatsby';
 import { color } from '../styles/variable';
 
-const Article = ({ id, meta, prevPage, nextPage, children }) => {
+const Article = ({ key, meta, prev, next, children }: ArticleProps) => {
   const { title, author, date } = meta;
   const ArticleWrap = styled.article`
     padding: 20px 0px;
     margin: 20px auto;
   `;
   return (
-    <ArticleWrap key={id}>
+    <ArticleWrap key={key}>
       <Header title={title} author={author} date={date} />
       <Content>{children}</Content>
-      <Footer prev={prevPage} next={nextPage} />
+      <Footer prev={prev} next={next} />
     </ArticleWrap>
   );
 };
 
-const Header = ({ title, author, date }) => {
+const Header = ({ title, author, date }: HeaderProps) => {
   const HeaderWrap = styled.header`
-    --border-color: ${(props) => props.color};
+    --border-color: ${color.post.borderColor};
   `;
   const H1Wrap = styled.h1`
     margin: 40px 0 15px;
@@ -30,7 +29,7 @@ const Header = ({ title, author, date }) => {
     font-size: 1.4rem;
     line-height: 1.3;
     position: relative;
-    color: ${(props) => props.color};
+    color: ${color.post.titleColor};
     border-bottom: 3px dotted var(--border-color);
     &::after {
       content: '';
@@ -41,30 +40,32 @@ const Header = ({ title, author, date }) => {
       border-bottom: 3px dotted var(--border-color);
     }
   `;
-  const PostMateWrap = styled(PostMate)`
-    color: ${(props) => props.color};
+
+  return (
+    <HeaderWrap color={color.post.borderColor}>
+      <H1Wrap>{title}</H1Wrap>
+      <PostMate author={author} date={date} />
+    </HeaderWrap>
+  );
+};
+
+const PostMate = ({ author, date }: PostMetaProps) => {
+  const PostMateWrap = styled.div`
+    color: ${color.post.metaColor};
     font-size: 1rem;
     margin-bottom: 10px;
     a {
       color: inherit;
     }
   `;
-
   return (
-    <HeaderWrap color={color.post.borderColor}>
-      <H1Wrap color={color.post.titleColor}>{title}</H1Wrap>
-      <PostMateWrap color={color.post.metaColor} author={author} date={date} />
-    </HeaderWrap>
+    <PostMateWrap>
+      <span>{date}</span> :: <a href="/about">{author}</a>
+    </PostMateWrap>
   );
 };
 
-const PostMate = ({ className, style, author, date }) => (
-  <div className={className} style={style}>
-    <span>{date}</span> :: <a href="/about">{author}</a>
-  </div>
-);
-
-const Footer = ({ prev, next }) => {
+const Footer = ({ prev, next }: FooterProps) => {
   const FooterWrap = styled.footer`
     margin-top: 50px;
   `;
@@ -132,23 +133,30 @@ const Footer = ({ prev, next }) => {
   );
 };
 
-Article.propTypes = {
-  children: PropTypes.element.isRequired,
-  meta: PropTypes.shape(Header.propTypes),
-};
+interface ArticleProps extends FooterProps {
+  key: string;
+  children: React.ReactChild;
+  meta: HeaderProps;
+}
 
-Header.propTypes = {
-  title: PropTypes.string,
-  author: PropTypes.string,
-  date: PropTypes.string,
-};
+interface HeaderProps extends PostMetaProps {
+  title: string;
+}
 
-PostMate.propTypes = {
-  className: PropTypes.string,
-  style: PropTypes.object,
-  color: PropTypes.string,
-  author: PropTypes.string,
-  date: PropTypes.string,
-};
+interface PostMetaProps {
+  author: string;
+  date: string;
+}
+
+interface FooterProps {
+  prev: NodeProps;
+  next: NodeProps;
+}
+
+export type NodeProps = {
+  id: string;
+  title: string;
+  slug: string;
+} | null;
 
 export default Article;

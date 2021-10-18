@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const fs = require('fs');
 
 exports.onPreBootstrap = async ({ reporter }) => {
@@ -46,7 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   posts.forEach(({ node }, index) => {
     createPage({
       path: `/posts/${node.slug}`,
-      component: `${__dirname}/src/_templates/post-template.js`,
+      component: `${__dirname}/src/_templates/post-template.tsx`,
       context: {
         id: node.id,
         prev: index === 0 ? null : posts[index - 1].node,

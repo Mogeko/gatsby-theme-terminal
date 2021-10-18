@@ -3,7 +3,16 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/vsDark';
 import { styled } from '@linaria/react';
 
-const PrismCode = ({ children: { props } }) => {
+type PrismCodeProps = {
+  children: {
+    props: {
+      className: string;
+      children: string;
+    };
+  };
+};
+
+const PrismCode = ({ children: { props } }: PrismCodeProps) => {
   const { className, children } = props;
   const lang = className ? className.replace(/language-/, '') : 'none';
 
@@ -15,7 +24,7 @@ const PrismCode = ({ children: { props } }) => {
     margin: 1em 0;
   `;
 
-  const Header = ({ language }) => {
+  const Header = ({ language }: { language: string }) => {
     const HeaderWrap = styled.div`
       color: #fcfcfa;
       background: #011220;
@@ -51,6 +60,8 @@ const PrismCode = ({ children: { props } }) => {
   `;
 
   return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore Allow `language` to be a string
     <Highlight {...defaultProps} theme={theme} code={children} language={lang}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Pre className={className} style={style}>

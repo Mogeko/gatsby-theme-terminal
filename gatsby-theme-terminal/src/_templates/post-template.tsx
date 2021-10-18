@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import components from '../components/mdx';
 import { graphql, Link } from 'gatsby';
-import Article from '../components/article';
+import Article, { NodeProps } from '../components/article';
 
 const shortcodes = { Link };
 
-const PageTemplate = ({ data: { mdx, site }, pageContext }) => {
+const PageTemplate = ({ data: { mdx, site }, pageContext }: PageTempProps) => {
   const { prev, next } = pageContext;
   const prevPage = prev
     ? {
@@ -33,8 +32,8 @@ const PageTemplate = ({ data: { mdx, site }, pageContext }) => {
   };
 
   return (
-    <Layout>
-      <Article key={mdx.id} meta={meta} prevPage={prevPage} nextPage={nextPage}>
+    <Layout className="Post-Layout">
+      <Article key={mdx.id} meta={meta} prev={prevPage} next={nextPage}>
         <MDXProvider components={{ ...components, ...shortcodes }}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </MDXProvider>
@@ -64,11 +63,34 @@ export const pageQuery = graphql`
   }
 `;
 
-PageTemplate.propTypes = {
-  data: PropTypes.shape({
-    mdx: PropTypes.any.isRequired,
-    site: PropTypes.any.isRequired,
-  }),
-};
+interface PageTempProps {
+  data: PageQueryData;
+  pageContext: {
+    prev: pageContextNodeProps;
+    next: pageContextNodeProps;
+  };
+}
+
+interface PageQueryData {
+  mdx: {
+    id: string;
+    body: string;
+    frontmatter: {
+      title: string;
+      date: string;
+    };
+  };
+  site: {
+    siteMetadata: {
+      author: string;
+    };
+  };
+}
+
+type pageContextNodeProps = {
+  frontmatter: {
+    title: string;
+  };
+} & NodeProps;
 
 export default PageTemplate;
