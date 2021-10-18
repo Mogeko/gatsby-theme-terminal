@@ -1,10 +1,9 @@
 import React from 'react';
 import { styled } from '@linaria/react';
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import { color } from '../styles/variable';
 
-const Header = ({ siteTitle, menu }) => {
+const Header = ({ siteTitle, menu }: HeaderProps) => {
   const HeaderBar = styled.header`
     color: inherit;
     display: flex;
@@ -13,20 +12,20 @@ const Header = ({ siteTitle, menu }) => {
 
   return (
     <HeaderBar>
-      <Logo siteTitle={siteTitle} themeColor={color.headerColor} />
+      <Logo siteTitle={siteTitle} />
       <MenuBar menu={menu} />
     </HeaderBar>
   );
 };
 
-const Logo = ({ siteTitle, themeColor }) => {
+const Logo = ({ siteTitle }: LogoProps) => {
   const LogoWrap = styled.div`
     display: flex;
     &::after {
       background: repeating-linear-gradient(
         90deg,
-        ${(props) => props.color},
-        ${(props) => props.color} 2px,
+        ${color.headerColor},
+        ${color.headerColor} 2px,
         transparent 0,
         transparent 10px
       );
@@ -35,7 +34,7 @@ const Logo = ({ siteTitle, themeColor }) => {
       width: 100%;
     }
     a {
-      background-color: ${(props) => props.color};
+      background-color: ${color.headerColor};
       text-decoration: none;
       padding: 5px 10px;
       color: inherit;
@@ -43,13 +42,13 @@ const Logo = ({ siteTitle, themeColor }) => {
   `;
 
   return (
-    <LogoWrap color={themeColor}>
+    <LogoWrap>
       <Link to="/">{siteTitle}</Link>
     </LogoWrap>
   );
 };
 
-const MenuBar = ({ menu }) => {
+const MenuBar = ({ menu }: MenuProps) => {
   const Menu = styled.nav`
     margin: 20px 0;
     display: flex;
@@ -63,7 +62,7 @@ const MenuBar = ({ menu }) => {
 
   return (
     <Menu>
-      {menu.map((item) => (
+      {menu.map((item: { title: string; path: string }) => (
         <a key={`Menu-${item.title}`} href={item.path}>
           {item.title}
         </a>
@@ -72,27 +71,17 @@ const MenuBar = ({ menu }) => {
   );
 };
 
-MenuBar.propTypes = {
-  menu: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      path: PropTypes.string,
-    })
-  ),
-};
+type HeaderProps = MenuProps & LogoProps;
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-  color: PropTypes.shape({
-    themeColor: PropTypes.string,
-    ...PropTypes.objectOf(PropTypes.string),
-  }),
-  ...MenuBar.propTypes,
-};
+interface LogoProps {
+  siteTitle: string;
+}
 
-Logo.propTypes = {
-  siteTitle: PropTypes.string,
-  themeColor: PropTypes.string,
-};
+interface MenuProps {
+  menu: {
+    title: string;
+    path: string;
+  }[];
+}
 
 export default Header;

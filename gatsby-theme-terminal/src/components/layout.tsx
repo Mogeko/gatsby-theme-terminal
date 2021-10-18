@@ -6,7 +6,7 @@ import CssBaseline from '../styles/base';
 import Header from './header';
 import Footer from './footer';
 
-const Layout = ({ children, classname }) => {
+const Layout = ({ children, className }: LayoutProps) => {
   const data = useStaticQuery(graphql`
     query SiteDataQuery {
       site {
@@ -31,7 +31,7 @@ const Layout = ({ children, classname }) => {
   ).getFullYear();
 
   return (
-    <Wrap className={classname}>
+    <Wrap className={className}>
       <CssBaseline />
       <Header
         siteTitle={data.site.siteMetadata?.title}
@@ -61,5 +61,10 @@ Layout.propTypes = {
   children: PropTypes.element.isRequired,
   classname: PropTypes.string,
 };
+
+interface LayoutProps {
+  className: string;
+  children: React.ReactChild;
+}
 
 export default Layout;

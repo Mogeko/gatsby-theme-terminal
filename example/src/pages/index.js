@@ -1,3 +1,3 @@
-import IndexPage from 'gatsby-theme-terminal/src/pages';
+import IndexPage from 'gatsby-theme-terminal';
 
 export default IndexPage;

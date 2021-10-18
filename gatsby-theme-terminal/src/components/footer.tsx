@@ -1,9 +1,8 @@
 import React from 'react';
 import { styled } from '@linaria/react';
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 
-const Footer = ({ year, now }) => {
+const Footer = ({ year, now }: FooterProps) => {
   const FooterWrap = styled.footer`
     padding: 40px 0;
     opacity: 0.5;
@@ -27,9 +26,9 @@ const Footer = ({ year, now }) => {
   );
 };
 
-Footer.propTypes = {
-  year: PropTypes.number,
-  now: PropTypes.number,
-};
+interface FooterProps {
+  year: number;
+  now: number;
+}
 
 export default Footer;

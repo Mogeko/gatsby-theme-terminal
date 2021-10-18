@@ -226,6 +226,6 @@ This paragraph has some `code` in it.
 
     This paragraph has some `code` in it.
 
-![Alt Text](https://raw.githubusercontent.com/gatsbyjs/gatsby-starter-blog/master/content/blog/hello-world/salty_egg.jpg "Image Title")
+![Alt Text](https://raw.githubusercontent.com/gatsbyjs/gatsby-starter-blog/master/content/blog/hello-world/salty_egg.jpg 'Image Title')
 
     ![Alt Text](https://raw.githubusercontent.com/gatsbyjs/gatsby-starter-blog/master/content/blog/hello-world/salty_egg.jpg "Image Title")

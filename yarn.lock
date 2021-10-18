@@ -1505,6 +1505,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emmetio/abbreviation@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "@emmetio/abbreviation@npm:2.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40emmetio%2Fabbreviation%2Fdownload%2F%40emmetio%2Fabbreviation-2.2.2.tgz"
+  dependencies:
+    "@emmetio/scanner": ^1.0.0
+  checksum: 23235f56469ef2832be9ca3600eb7bb2acd301fe606c895126f1cc7e06b9620e10b2908e3f31930c76a76aadbaeef4f93dd3bd7a45f0975bedbc6ddb35c17f8d
+  languageName: node
+  linkType: hard
+
+"@emmetio/css-abbreviation@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "@emmetio/css-abbreviation@npm:2.1.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40emmetio%2Fcss-abbreviation%2Fdownload%2F%40emmetio%2Fcss-abbreviation-2.1.4.tgz"
+  dependencies:
+    "@emmetio/scanner": ^1.0.0
+  checksum: ede72dafc412180ced63046c648bee6e8b7a5511622ed3192f7f11d813e119fd5e71cd60b95ed6a07d2c9809d6567d8c6fb6c36a4e8dbbcca9bd19df92192eba
+  languageName: node
+  linkType: hard
+
+"@emmetio/scanner@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@emmetio/scanner@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40emmetio%2Fscanner%2Fdownload%2F%40emmetio%2Fscanner-1.0.0.tgz"
+  checksum: 4e4366bf0b56de0a53de361a125dd88b9f652ffea2961a4035fe6acc46670ef483ce86a5e5b66124562a27322099170c3cbfed524b2d07ad048a84e304ab70bd
+  languageName: node
+  linkType: hard
+
 "@emotion/is-prop-valid@npm:^0.8.8":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
@@ -2644,9 +2669,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^17.0.9":
+  version: 17.0.9
+  resolution: "@types/react-dom@npm:17.0.9::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Freact-dom%2Fdownload%2F%40types%2Freact-dom-17.0.9.tgz"
+  dependencies:
+    "@types/react": "*"
+  checksum: b7e898e1a22643a371f58e801a3d1d8cf13a82d77063c24be73e840ef8d877ca1d04adc5db168d0dac3167dc050a26b1d70efc5fe8566a7f46a3c488a8322989
+  languageName: node
+  linkType: hard
+
+"@types/react-helmet@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@types/react-helmet@npm:6.1.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact-helmet%2Fdownload%2F%40types%2Freact-helmet-6.1.4.tgz"
+  dependencies:
+    "@types/react": "*"
+  checksum: 62f506297de26c39fc37383dccd7630253a66b2e3eb94d81ea9e6cd615fba57aee5453f6acd4b3e88dc0363f74a29305c483404899d1554f08bee8f4e716aa81
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*":
   version: 17.0.30
   resolution: "@types/react@npm:17.0.30"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: e3aaac1b8fda6e3622b75db0bd7d8dc412c2f2b77a00afdd32cae8c71fb0b1ca6926ab1fbe1c536dd51d96c0ba372738993837a8df1637637aaab7b86e421b7f
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^17.0.30":
+  version: 17.0.30
+  resolution: "@types/react@npm:17.0.30::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact%2Fdownload%2F%40types%2Freact-17.0.30.tgz"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
@@ -5829,6 +5883,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emmet@npm:^2.3.0":
+  version: 2.3.4
+  resolution: "emmet@npm:2.3.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Femmet%2Fdownload%2Femmet-2.3.4.tgz"
+  dependencies:
+    "@emmetio/abbreviation": ^2.2.2
+    "@emmetio/css-abbreviation": ^2.1.4
+  checksum: e86127bca38f3fadbd18bb986709118ef6ba2897b7e528f3d5b09eb170e4e39a99083e058de06c7ae996140eb62f6f3cdeb066c6b3e6387c33d81188db2dc242
+  languageName: node
+  linkType: hard
+
 "emoji-regex@npm:^8.0.0":
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
@@ -6655,6 +6719,7 @@ __metadata:
   resolution: "example@workspace:example"
   dependencies:
     gatsby: ^3.14.2
+    gatsby-plugin-typescript: ^3.14.0
     gatsby-source-filesystem: ^3.14.0
     gatsby-theme-terminal: ^0.0.1
     react: ^17.0.2
@@ -7693,6 +7758,9 @@ fsevents@~2.3.2:
     "@mdx-js/mdx": ^1.6.22
     "@mdx-js/react": ^1.6.22
     "@types/mdx-js__react": ^1.5.4
+    "@types/react": ^17.0.30
+    "@types/react-dom": ^17.0.9
+    "@types/react-helmet": ^6.1.4
     babel-preset-gatsby: ^1.14.0
     gatsby: ^3.14.2
     gatsby-plugin-image: ^1.14.1
@@ -7701,14 +7769,15 @@ fsevents@~2.3.2:
     gatsby-plugin-mdx: ^2.14.0
     gatsby-plugin-offline: ^4.14.0
     gatsby-plugin-react-helmet: ^4.14.0
+    gatsby-plugin-typescript: ^3.14.0
     gatsby-source-filesystem: ^3.14.0
     linaria: ^3.0.0-beta.13
     prism-react-renderer: 1.2.0
-    prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
     typescript: ^4.4.4
+    typescript-styled-plugin: ^0.18.1
   peerDependencies:
     "@mdx-js/react": ^1.6.22
     gatsby: ^3.14.2
@@ -9790,6 +9859,13 @@ fsevents@~2.3.2:
   bin:
     json5: lib/cli.js
   checksum: e88fc5274bb58fc99547baa777886b069d2dd96d9cfc4490b305fd16d711dabd5979e35a4f90873cefbeb552e216b041a304fe56702bedba76e19bc7845f208d
+  languageName: node
+  linkType: hard
+
+"jsonc-parser@npm:^2.3.0":
+  version: 2.3.1
+  resolution: "jsonc-parser@npm:2.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjsonc-parser%2Fdownload%2Fjsonc-parser-2.3.1.tgz"
+  checksum: de37640bd1d0dcc5b2e19f2514b3c2e05832ec6fdb86da65102509524d3eef0f2cc49bd471a0b28b8af2f8069bbca8396a9bd5cad4ae04001e1893e47df265eb
   languageName: node
   linkType: hard
 
@@ -15199,6 +15275,25 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"typescript-styled-plugin@npm:^0.18.1":
+  version: 0.18.1
+  resolution: "typescript-styled-plugin@npm:0.18.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript-styled-plugin%2Fdownload%2Ftypescript-styled-plugin-0.18.1.tgz"
+  dependencies:
+    typescript-template-language-service-decorator: ^2.2.0
+    vscode-css-languageservice: ^5.1.4
+    vscode-emmet-helper: ^2.6.4
+    vscode-languageserver-types: ^3.16.0
+  checksum: 68e3d045511e1f8a29f274a7c03d0a30ea96dfd0149c46ba512207255b106620d05a560774080116875dc1feef915c3c29cd27b18b394a4fe71de833e2e18b2d
+  languageName: node
+  linkType: hard
+
+"typescript-template-language-service-decorator@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "typescript-template-language-service-decorator@npm:2.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript-template-language-service-decorator%2Fdownload%2Ftypescript-template-language-service-decorator-2.2.0.tgz"
+  checksum: a9781d893b3123050fd3c1efe24ffc5b62c298f07e4b9c17884ebf33cb3f4821f3e12d9f17fe382fc31ccd6599255b1ea36ae602d2b519550241f221a37815d4
+  languageName: node
+  linkType: hard
+
 typescript@^4.4.4:
   version: 4.4.4
   resolution: "typescript@npm:4.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2Fdownload%2Ftypescript-4.4.4.tgz"
@@ -15827,6 +15922,67 @@ typescript@^4.4.4:
     unist-util-stringify-position: ^2.0.0
     vfile-message: ^2.0.0
   checksum: ee5726e10d170472cde778fc22e0f7499caa096eb85babea5d0ce0941455b721037ee1c9e6ae506ca2803250acd313d0f464328ead0b55cfe7cb6315f1b462d6
+  languageName: node
+  linkType: hard
+
+"vscode-css-languageservice@npm:^5.1.4":
+  version: 5.1.7
+  resolution: "vscode-css-languageservice@npm:5.1.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fvscode-css-languageservice%2Fdownload%2Fvscode-css-languageservice-5.1.7.tgz"
+  dependencies:
+    vscode-languageserver-textdocument: ^1.0.1
+    vscode-languageserver-types: ^3.16.0
+    vscode-nls: ^5.0.0
+    vscode-uri: ^3.0.2
+  checksum: f2365dfdd83a109d586a436adb06187556b00e6273357518d8023033514ec8866d53a501b026699825e70610f20080e40a1a34de16aeb21386d9db7d2ad7870a
+  languageName: node
+  linkType: hard
+
+"vscode-emmet-helper@npm:^2.6.4":
+  version: 2.6.4
+  resolution: "vscode-emmet-helper@npm:2.6.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fvscode-emmet-helper%2Fdownload%2Fvscode-emmet-helper-2.6.4.tgz"
+  dependencies:
+    emmet: ^2.3.0
+    jsonc-parser: ^2.3.0
+    vscode-languageserver-textdocument: ^1.0.1
+    vscode-languageserver-types: ^3.15.1
+    vscode-nls: ^5.0.0
+    vscode-uri: ^2.1.2
+  checksum: ccee14eadae599fa619f714865ef47b6fbabfe684eabeee00311ac078bbf340cd07c0481af4028e2565412be2fb272dbabd268174a8c835243f699cdd6b5c09e
+  languageName: node
+  linkType: hard
+
+"vscode-languageserver-textdocument@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "vscode-languageserver-textdocument@npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fvscode-languageserver-textdocument%2Fdownload%2Fvscode-languageserver-textdocument-1.0.2.tgz"
+  checksum: 2e29fdc819ed911a60d6ead59dfe385a335b7b4f512257e774cde482c2ac7880378650d85533e549743d04162aac6b9d9f1569282308e87d8390e238277ee6da
+  languageName: node
+  linkType: hard
+
+"vscode-languageserver-types@npm:^3.15.1, vscode-languageserver-types@npm:^3.16.0":
+  version: 3.16.0
+  resolution: "vscode-languageserver-types@npm:3.16.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fvscode-languageserver-types%2Fdownload%2Fvscode-languageserver-types-3.16.0.tgz"
+  checksum: 7a44fb10b9fbeb9529f832337b7f0430fc6275d62945b86851d425a950e22da3917ef5f6c552688191769dd1eae047c6ee9ec3d9f2280498353007c2dfe0725c
+  languageName: node
+  linkType: hard
+
+"vscode-nls@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "vscode-nls@npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fvscode-nls%2Fdownload%2Fvscode-nls-5.0.0.tgz"
+  checksum: 8b12d1a3b0f783b91a98747fce76d2c26299db0c288089703bc3de53cc503f3ededa9833c21c3cb3b4857bd1c4e5d93663da38d4ddbf7b970dc63b6892d4639a
+  languageName: node
+  linkType: hard
+
+"vscode-uri@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "vscode-uri@npm:2.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fvscode-uri%2Fdownload%2Fvscode-uri-2.1.2.tgz"
+  checksum: 58c2d21018b86825b5a7f65f8879f837828a367bbf31d07ed59268fb2b56c9621a6996547d5e8f966d6ac05f0f921a7005f4541927007f788c2e4c6e5d6735e0
+  languageName: node
+  linkType: hard
+
+"vscode-uri@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "vscode-uri@npm:3.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fvscode-uri%2Fdownload%2Fvscode-uri-3.0.2.tgz"
+  checksum: 5ed2c95a483a43398df40c31d23e44f138e9c8bed384fa4edf0fd97396ce18ae8dae173c5d55e69b47205e2108e165cb165b12843a74e8b35c066d9f3810fb6c
   languageName: node
   linkType: hard
 

@@ -1,7 +1,7 @@
-import { css } from '@linaria/core';
-import { immutableColors } from '../styles/variable';
+import { styled } from '@linaria/react';
+import { immutableColors } from './variable';
 
-const CssBaseline = css`
+const CssBaseline = styled.div`
   :global() {
     @import url('https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css');
     @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');

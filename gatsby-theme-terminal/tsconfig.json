@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es6",
+    "jsx": "preserve",
+    "module": "es6",
+    "rootDir": "./",
+    "lib": [
+      "dom",
+      "es2015",
+      "es2017"
+    ],
+    "allowJs": true,
+    "checkJs": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "preserveConstEnums": true,
+    "noImplicitThis": true,
+    "removeComments": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./lib/prism-react-renderer/**/*",
+    "./gatsby-*"
+  ]
+}
