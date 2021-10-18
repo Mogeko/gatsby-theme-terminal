@@ -2558,6 +2558,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mdx-js__react@npm:^1.5.4":
+  version: 1.5.4
+  resolution: "@types/mdx-js__react@npm:1.5.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fmdx-js__react%2Fdownload%2F%40types%2Fmdx-js__react-1.5.4.tgz"
+  dependencies:
+    "@types/react": "*"
+  checksum: b06ec66dc91d8c0b425ee0fb7f4ff29b77d6ffe9da0a4f5f60b45ceb8773b19fc6225570b92914d2fd4df63f24d8aadafffb60207705b541e9922cd485575dbd
+  languageName: node
+  linkType: hard
+
 "@types/minimatch@npm:*":
   version: 3.0.5
   resolution: "@types/minimatch@npm:3.0.5"
@@ -7683,6 +7692,7 @@ fsevents@~2.3.2:
   dependencies:
     "@mdx-js/mdx": ^1.6.22
     "@mdx-js/react": ^1.6.22
+    "@types/mdx-js__react": ^1.5.4
     babel-preset-gatsby: ^1.14.0
     gatsby: ^3.14.2
     gatsby-plugin-image: ^1.14.1
@@ -12593,11 +12603,11 @@ fsevents@~2.3.2:
   linkType: hard
 
 "prism-react-renderer@file:./lib/prism-react-renderer::locator=gatsby-theme-terminal%40workspace%3Agatsby-theme-terminal":
-  version: 1.2.1
-  resolution: "prism-react-renderer@file:./lib/prism-react-renderer#./lib/prism-react-renderer::hash=9156d6&locator=gatsby-theme-terminal%40workspace%3Agatsby-theme-terminal"
+  version: 0.0.0
+  resolution: "prism-react-renderer@file:./lib/prism-react-renderer#./lib/prism-react-renderer::hash=726e66&locator=gatsby-theme-terminal%40workspace%3Agatsby-theme-terminal"
   peerDependencies:
     react: ">=0.14.9"
-  checksum: 02cf3c1a1c4280f37963bf167e11cd86fd0fc6b19077b8e9e7ada85f7116594a512ec930f35048803370f7ca218eb981b1a8b36c720474264461591b2ed3878c
+  checksum: 513048bc23aa460128e0b76cd37707cd4a964f74db1b97d3e80febfd5c1b50e94fea1bbda9dcc414eb6c486167531694f72f16ce2f021fca5fd3ff376ddf5018
   languageName: node
   linkType: hard
 
