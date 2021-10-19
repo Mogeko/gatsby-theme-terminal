@@ -17,14 +17,14 @@ const PageTemplate = ({
     ? {
         id: prev.id,
         title: prev.frontmatter.title,
-        slug: `/posts/${prev.slug}`,
+        slug: `/${prev.slug}`,
       }
     : null;
   const nextPage = next
     ? {
         id: next.id,
         title: next.frontmatter.title,
-        slug: `/posts/${next.slug}`,
+        slug: `/${next.slug}`,
       }
     : null;
 

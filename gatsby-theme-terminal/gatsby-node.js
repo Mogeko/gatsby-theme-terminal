@@ -10,7 +10,7 @@
 const fs = require('fs');
 
 exports.onPreBootstrap = async ({ reporter }) => {
-  const contentPath = `${__dirname}/content/posts`;
+  const contentPath = `${__dirname}/content`;
 
   fs.stat(contentPath, (err) => {
     if (err) {
@@ -31,8 +31,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           edges {
             node {
               id
+              excerpt(pruneLength: 300)
               frontmatter {
                 title
+                date(formatString: "YYYY-MM-DD")
               }
               slug
             }
@@ -48,17 +50,28 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return result.data.allMdx.edges;
   };
 
-  await getPosts().then((posts) => {
-    posts.forEach(({ node }, index) => {
+  await getPosts()
+    .then((posts) => {
       createPage({
-        path: `/posts/${node.slug}`,
-        component: `${__dirname}/src/_templates/post-template.tsx`,
+        path: `/posts`,
+        component: `${__dirname}/src/_templates/posts-template.tsx`,
         context: {
-          id: node.id,
-          prev: index === 0 ? null : posts[index - 1].node,
-          next: index === posts.length - 1 ? null : posts[index + 1].node,
+          posts: posts,
         },
       });
+      return posts;
+    })
+    .then((posts) => {
+      posts.forEach(({ node }, index) => {
+        createPage({
+          path: `/${node.slug}`,
+          component: `${__dirname}/src/_templates/article-template.tsx`,
+          context: {
+            id: node.id,
+            prev: index === 0 ? null : posts[index - 1].node,
+            next: index === posts.length - 1 ? null : posts[index + 1].node,
+          },
+        });
+      });
     });
-  });
 };
