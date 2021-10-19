@@ -5,7 +5,7 @@
   "author": "Mogeko <zhengjunyi@live.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --noEmit",
     "clean": "rm -rf content dist & gatsby clean"
   },
   "peerDependencies": {
