@@ -1,7 +1,6 @@
 {
   "name": "example",
   "version": "0.0.1",
-  "main": "index.js",
   "author": "Mogeko <zhengjunyi@live.com>",
   "license": "MIT",
   "scripts": {

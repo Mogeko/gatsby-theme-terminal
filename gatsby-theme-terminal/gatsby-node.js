@@ -51,6 +51,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   };
 
   await getPosts()
+    .then((posts) => posts.filter((post) => post.node.slug !== 'description'))
     .then((posts) => {
       createPage({
         path: `/posts`,
