@@ -11,7 +11,7 @@ const Article = ({ key, meta, prev, next, children }: ArticleProps) => {
     margin: 20px auto;
   `;
   return (
-    <ArticleWrap key={key}>
+    <ArticleWrap key={`Article-${key}`}>
       <Header title={title} author={author} date={date} />
       <Content>{children}</Content>
       <Footer prev={prev} next={next} />
@@ -19,7 +19,7 @@ const Article = ({ key, meta, prev, next, children }: ArticleProps) => {
   );
 };
 
-const Header = ({ title, author, date }: HeaderProps) => {
+export const Header = ({ title, author, date }: HeaderProps) => {
   const HeaderWrap = styled.header`
     --border-color: ${color.post.borderColor};
   `;
@@ -60,7 +60,13 @@ const PostMate = ({ author, date }: PostMetaProps) => {
   `;
   return (
     <PostMateWrap>
-      <span>{date}</span> :: <a href="/about">{author}</a>
+      <span>{date}</span>
+      {author ? (
+        <>
+          {' :: '}
+          <a href="/about">{author}</a>
+        </>
+      ) : null}
     </PostMateWrap>
   );
 };
@@ -144,7 +150,7 @@ interface HeaderProps extends PostMetaProps {
 }
 
 interface PostMetaProps {
-  author: string;
+  author?: string;
   date: string;
 }
 
