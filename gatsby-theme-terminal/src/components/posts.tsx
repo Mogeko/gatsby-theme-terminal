@@ -1,37 +1,9 @@
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 import { styled } from '@linaria/react';
 import React from 'react';
-import { Header } from '../components/article';
-import Layout from '../components';
+import { Header } from './article';
 
-const PostsQuery = graphql`
-  query PostsQuery {
-    allMdx(sort: { fields: slug }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 300)
-          frontmatter {
-            title
-            date(formatString: "YYYY-MM-DD")
-          }
-          slug
-        }
-      }
-    }
-  }
-`;
-
-const Posts = () => (
-  <Layout className="Posts-Layout">
-    <PostsList keyPrefix="Posts" />
-  </Layout>
-);
-
-export const PostsList = ({ keyPrefix }: { keyPrefix: string }) => {
-  const {
-    allMdx: { edges },
-  }: PostsData = useStaticQuery(PostsQuery);
+const PostsList = ({ data, keyPrefix }: PostsListProps) => {
   const PostItem = styled.article`
     text-align: left;
     margin: 20px auto;
@@ -63,7 +35,7 @@ export const PostsList = ({ keyPrefix }: { keyPrefix: string }) => {
 
   return (
     <div>
-      {edges.map(({ node }) => (
+      {data.posts.map(({ node }) => (
         <PostItem key={`${keyPrefix}-${node.id}`}>
           <Header title={node.frontmatter.title} date={node.frontmatter.date} />
           <p>{node.excerpt}</p>
@@ -74,20 +46,23 @@ export const PostsList = ({ keyPrefix }: { keyPrefix: string }) => {
   );
 };
 
-interface PostsData {
-  allMdx: {
-    edges: {
-      node: {
-        id: string;
-        excerpt: string;
-        frontmatter: {
-          title: string;
-          date: string;
-        };
-        slug: string;
-      };
-    }[];
-  };
+interface PostsListProps {
+  data: PostsData;
+  keyPrefix: string;
 }
 
-export default Posts;
+export interface PostsData {
+  posts: {
+    node: {
+      id: string;
+      excerpt: string;
+      frontmatter: {
+        title: string;
+        date: string;
+      };
+      slug: string;
+    };
+  }[];
+}
+
+export default PostsList;

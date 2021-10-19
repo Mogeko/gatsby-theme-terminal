@@ -4,6 +4,16 @@ import Header from './header';
 import PrismCode from './highlight';
 import Layout from './layout';
 import componemts, { Content } from './mdx';
+import PostsList, { PostsData } from './posts';
 
-export { Article, Footer, Header, PrismCode, componemts, Content };
+export {
+  Article,
+  Footer,
+  Header,
+  PostsList,
+  PostsData,
+  PrismCode,
+  componemts,
+  Content,
+};
 export default Layout;
