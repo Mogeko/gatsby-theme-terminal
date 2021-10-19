@@ -3,12 +3,15 @@ import Layout from '../components/layout';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import components from '../components/mdx';
-import { graphql, Link } from 'gatsby';
+import { graphql, Link, PageProps } from 'gatsby';
 import Article, { NodeProps } from '../components/article';
 
 const shortcodes = { Link };
 
-const PageTemplate = ({ data: { mdx, site }, pageContext }: PageTempProps) => {
+const PageTemplate = ({
+  data: { mdx, site },
+  pageContext,
+}: PageProps<PageQueryData, PageContext>) => {
   const { prev, next } = pageContext;
   const prevPage = prev
     ? {
@@ -63,12 +66,9 @@ export const pageQuery = graphql`
   }
 `;
 
-interface PageTempProps {
-  data: PageQueryData;
-  pageContext: {
-    prev: pageContextNodeProps;
-    next: pageContextNodeProps;
-  };
+interface PageContext {
+  prev: PageContextNodeProps;
+  next: PageContextNodeProps;
 }
 
 interface PageQueryData {
@@ -87,7 +87,7 @@ interface PageQueryData {
   };
 }
 
-type pageContextNodeProps = {
+type PageContextNodeProps = {
   frontmatter: {
     title: string;
   };
