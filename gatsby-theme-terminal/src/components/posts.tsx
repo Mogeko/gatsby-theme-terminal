@@ -1,7 +1,8 @@
 import { Link } from 'gatsby';
 import { styled } from '@linaria/react';
-import React from 'react';
 import { Header } from './article';
+import { PostContextData } from '../config/gatsby-node';
+import React from 'react';
 
 const PostsList = ({ data, keyPrefix }: PostsListProps) => {
   const PostItem = styled.article`
@@ -12,26 +13,6 @@ const PostsList = ({ data, keyPrefix }: PostsListProps) => {
       border-bottom: 1px solid #3034361a;
     }
   `;
-  const ReadMore = ({ url }: { url: string }) => {
-    const ReadMoreWrap = styled.div`
-      a {
-        color: inherit;
-        display: inline-flex;
-        background: none;
-        padding: 0;
-        margin: 20px 0;
-        max-width: 100%;
-        border-color: transparent;
-        outline-color: currentcolor;
-        text-decoration: none;
-      }
-    `;
-    return (
-      <ReadMoreWrap>
-        <Link to={url}>Read More &rarr;</Link>
-      </ReadMoreWrap>
-    );
-  };
 
   return (
     <div>
@@ -46,23 +27,31 @@ const PostsList = ({ data, keyPrefix }: PostsListProps) => {
   );
 };
 
-interface PostsListProps {
-  data: PostsData;
-  keyPrefix: string;
-}
+const ReadMore = ({ url }: { url: string }) => {
+  console.log(url);
+  const ReadMoreWrap = styled.div`
+    a {
+      color: inherit;
+      display: inline-flex;
+      background: none;
+      padding: 0;
+      margin: 20px 0;
+      max-width: 100%;
+      border-color: transparent;
+      outline-color: currentcolor;
+      text-decoration: none;
+    }
+  `;
+  return (
+    <ReadMoreWrap>
+      <Link to={`/${url}`}>Read More &rarr;</Link>
+    </ReadMoreWrap>
+  );
+};
 
-export interface PostsData {
-  posts?: {
-    node: {
-      id: string;
-      excerpt: string;
-      frontmatter: {
-        title: string;
-        date: string;
-      };
-      slug: string;
-    };
-  }[];
+interface PostsListProps {
+  data: PostContextData;
+  keyPrefix: string;
 }
 
 export default PostsList;

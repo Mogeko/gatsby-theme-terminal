@@ -53,6 +53,18 @@ export const createPages: GatsbyNode['createPages'] = async ({
     .then((posts) => excludeSpecialFiles(posts))
     .then((posts) => {
       createPage({
+        path: `/`,
+        component: path.resolve(
+          `${__dirname}/../_templates/index-template.tsx`
+        ),
+        context: {
+          posts: posts,
+        },
+      });
+      return posts;
+    })
+    .then((posts) => {
+      createPage({
         path: `/posts`,
         component: path.resolve(
           `${__dirname}/../_templates/posts-template.tsx`
@@ -80,10 +92,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     });
 };
 
-export const excludeSpecialFiles = (
-  posts?: { node: NodeData }[],
-  files = []
-) => {
+const excludeSpecialFiles = (posts?: { node: NodeData }[], files = []) => {
   const specialFiles = ['about', 'description'].concat(files);
   return posts?.filter((post) => !specialFiles.includes(post.node.slug));
 };
@@ -97,6 +106,12 @@ interface QueryData {
       }[];
     };
   };
+}
+
+export interface PostContextData {
+  posts?: {
+    node: NodeData;
+  }[];
 }
 
 export interface NodeData {
