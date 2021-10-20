@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import { PostsList } from '../components';
 import { graphql, useStaticQuery } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { NodeData } from '../config/gatsby-node';
 
 const IndexQuery = graphql`
   query IndexQuery {
@@ -29,9 +30,7 @@ const IndexQuery = graphql`
 
 const IndexPage = () => {
   const query: IndexData = useStaticQuery(IndexQuery);
-  const data = query.allMdx.edges.filter(
-    (post) => post.node.slug !== 'description'
-  );
+  const data = excludeSpecialFiles(query.allMdx.edges);
   const description = query.mdx.body;
   return (
     <Layout className="Index-Layout">
@@ -45,18 +44,18 @@ const IndexPage = () => {
   );
 };
 
+export const excludeSpecialFiles = (
+  posts?: { node: NodeData }[],
+  files = []
+) => {
+  const specialFiles = ['about', 'description'].concat(files);
+  return posts?.filter((post) => !specialFiles.includes(post.node.slug));
+};
+
 interface IndexData {
   allMdx: {
     edges: {
-      node: {
-        id: string;
-        excerpt: string;
-        frontmatter: {
-          title: string;
-          date: string;
-        };
-        slug: string;
-      };
+      node: NodeData;
     }[];
   };
   mdx: {

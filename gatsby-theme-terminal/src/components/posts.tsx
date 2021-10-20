@@ -35,7 +35,7 @@ const PostsList = ({ data, keyPrefix }: PostsListProps) => {
 
   return (
     <div>
-      {data.posts.map(({ node }) => (
+      {data.posts?.map(({ node }) => (
         <PostItem key={`${keyPrefix}-${node.id}`}>
           <Header title={node.frontmatter.title} date={node.frontmatter.date} />
           <p>{node.excerpt}</p>
@@ -52,7 +52,7 @@ interface PostsListProps {
 }
 
 export interface PostsData {
-  posts: {
+  posts?: {
     node: {
       id: string;
       excerpt: string;
