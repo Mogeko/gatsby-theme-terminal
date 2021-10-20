@@ -2,6 +2,9 @@ import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import fs from 'fs';
 
+const CREATE_PATHS = ['/', '/posts'];
+const CREATE_TEMPLATES = ['index-template.tsx', 'posts-template.tsx'];
+
 export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = async ({
   reporter,
 }) => {
@@ -34,6 +37,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
               frontmatter {
                 title
                 date(formatString: "YYYY-MM-DD")
+                hidden
                 noEmit
               }
               slug
@@ -53,11 +57,12 @@ export const createPages: GatsbyNode['createPages'] = async ({
   await getPosts()
     .then((pages) => pages?.filter((page) => !page.node.frontmatter.noEmit))
     .then((pages) => {
-      const templates = ['index-template.tsx', 'posts-template.tsx'];
-      ['/', '/posts'].forEach((_path, i) =>
+      CREATE_PATHS.forEach((_path, i) =>
         createPage({
-          path: `/${_path}`,
-          component: path.resolve(`${__dirname}/../_templates/${templates[i]}`),
+          path: _path,
+          component: path.resolve(
+            `${__dirname}/../_templates/${CREATE_TEMPLATES[i]}`
+          ),
           context: {
             posts: pages,
           },
@@ -65,8 +70,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
       );
       return pages;
     })
-    .then((posts) => {
-      posts?.forEach(({ node }, index) => {
+    .then((pages) => {
+      pages?.forEach(({ node }, index) => {
         createPage({
           path: `/${node.slug}`,
           component: path.resolve(
@@ -74,8 +79,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
           ),
           context: {
             id: node.id,
-            prev: index === 0 ? null : posts[index - 1].node,
-            next: index === posts.length - 1 ? null : posts[index + 1].node,
+            prev: index === 0 ? null : pages[index - 1].node,
+            next: index === pages.length - 1 ? null : pages[index + 1].node,
           },
         });
       });
@@ -105,6 +110,7 @@ export interface NodeData {
   frontmatter: {
     title: string;
     date: string;
+    hidden: boolean;
     noEmit: boolean;
   };
   slug: string;

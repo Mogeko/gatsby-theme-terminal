@@ -16,13 +16,18 @@ const PostsList = ({ data, keyPrefix }: PostsListProps) => {
 
   return (
     <div>
-      {data.posts?.map(({ node }) => (
-        <PostItem key={`${keyPrefix}-${node.id}`}>
-          <Header title={node.frontmatter.title} date={node.frontmatter.date} />
-          <p>{node.excerpt}</p>
-          <ReadMore url={node.slug} />
-        </PostItem>
-      ))}
+      {data.posts
+        ?.filter((post) => !post.node.frontmatter.hidden)
+        .map(({ node }) => (
+          <PostItem key={`${keyPrefix}-${node.id}`}>
+            <Header
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+            />
+            <p>{node.excerpt}</p>
+            <ReadMore url={node.slug} />
+          </PostItem>
+        ))}
     </div>
   );
 };
