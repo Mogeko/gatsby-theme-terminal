@@ -34,6 +34,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
               frontmatter {
                 title
                 date(formatString: "YYYY-MM-DD")
+                noEmit
               }
               slug
             }
@@ -50,30 +51,19 @@ export const createPages: GatsbyNode['createPages'] = async ({
   };
 
   await getPosts()
-    .then((posts) => excludeSpecialFiles(posts))
-    .then((posts) => {
-      createPage({
-        path: `/`,
-        component: path.resolve(
-          `${__dirname}/../_templates/index-template.tsx`
-        ),
-        context: {
-          posts: posts,
-        },
-      });
-      return posts;
-    })
-    .then((posts) => {
-      createPage({
-        path: `/posts`,
-        component: path.resolve(
-          `${__dirname}/../_templates/posts-template.tsx`
-        ),
-        context: {
-          posts: posts,
-        },
-      });
-      return posts;
+    .then((pages) => pages?.filter((page) => !page.node.frontmatter.noEmit))
+    .then((pages) => {
+      const templates = ['index-template.tsx', 'posts-template.tsx'];
+      ['/', '/posts'].forEach((_path, i) =>
+        createPage({
+          path: `/${_path}`,
+          component: path.resolve(`${__dirname}/../_templates/${templates[i]}`),
+          context: {
+            posts: pages,
+          },
+        })
+      );
+      return pages;
     })
     .then((posts) => {
       posts?.forEach(({ node }, index) => {
@@ -90,11 +80,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
         });
       });
     });
-};
-
-const excludeSpecialFiles = (posts?: { node: NodeData }[], files = []) => {
-  const specialFiles = ['about', 'description'].concat(files);
-  return posts?.filter((post) => !specialFiles.includes(post.node.slug));
 };
 
 interface QueryData {
@@ -120,6 +105,7 @@ export interface NodeData {
   frontmatter: {
     title: string;
     date: string;
+    noEmit: boolean;
   };
   slug: string;
 }

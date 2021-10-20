@@ -28,7 +28,6 @@ const PostsList = ({ data, keyPrefix }: PostsListProps) => {
 };
 
 const ReadMore = ({ url }: { url: string }) => {
-  console.log(url);
   const ReadMoreWrap = styled.div`
     a {
       color: inherit;
